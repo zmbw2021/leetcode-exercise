@@ -1,6 +1,5 @@
 package com.lm.study;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -100,10 +99,10 @@ public class Code0004FindMedianSortedArraysTest {
     @Test
     public void test() {
         Code0004FindMedianSortedArraysTest findMedianSortedArraysTest = new Code0004FindMedianSortedArraysTest();
-        Assert.assertEquals(2.00000, findMedianSortedArraysTest.findMedianSortedArrays01(new int[]{1, 3}, new int[]{2}));
-        Assert.assertEquals(2.50000, findMedianSortedArraysTest.findMedianSortedArrays01(new int[]{1, 2}, new int[]{3, 4}));
-        Assert.assertEquals(0.00000, findMedianSortedArraysTest.findMedianSortedArrays01(new int[]{0, 0}, new int[]{0, 0}));
-        Assert.assertEquals(1.00000, findMedianSortedArraysTest.findMedianSortedArrays01(new int[]{}, new int[]{1}));
-        Assert.assertEquals(2.00000, findMedianSortedArraysTest.findMedianSortedArrays01(new int[]{2}, new int[]{}));
+        System.out.println(findMedianSortedArraysTest.findMedianSortedArrays01(new int[]{1, 3}, new int[]{2}));
+        System.out.println(findMedianSortedArraysTest.findMedianSortedArrays01(new int[]{1, 2}, new int[]{3, 4}));
+        System.out.println(findMedianSortedArraysTest.findMedianSortedArrays01(new int[]{0, 0}, new int[]{0, 0}));
+        System.out.println(findMedianSortedArraysTest.findMedianSortedArrays01(new int[]{}, new int[]{1}));
+        System.out.println(findMedianSortedArraysTest.findMedianSortedArrays01(new int[]{2}, new int[]{}));
     }
 }

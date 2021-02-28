@@ -9,6 +9,7 @@ import java.util.Stack;
  * leetcode-0020 有效的括号
  * 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效
  *
+ * level 1
  * @author limin
  * @date 2021/2/21
  */

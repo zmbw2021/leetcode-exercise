@@ -7,7 +7,7 @@ import org.junit.Test;
  * leetcode-0003 无重复字符的最长子串
  * 给定一个字符串，请你找出其中不含有重复字符的最长子串的长度
  *
- * level 2
+ * level 2 94.68%
  * @author limin
  * @date 2021/1/31
  */

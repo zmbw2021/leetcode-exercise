@@ -7,7 +7,7 @@ import org.junit.Test;
  * leetcode--0007 整数反转
  * 给你一个 32 位的有符号整数 x ，返回 x 中每位上的数字反转后的结果。
  *
- * level 1
+ * level 1 100%
  * @author limin
  * @date 2021/2/21
  */

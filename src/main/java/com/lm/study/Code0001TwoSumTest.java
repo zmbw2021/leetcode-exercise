@@ -9,7 +9,7 @@ import java.util.HashMap;
  * leetcode-0001 两数之和
  * 给定一个整数数组nums和一个整数目标值target，请你在该数组中找出和为目标值的那两个整数，并返回它们的数组下标
  *
- * level 1 100%
+ * level 1 100.00%
  * @author limin
  * @date 2021/1/31
  */

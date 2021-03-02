@@ -8,21 +8,31 @@ import org.junit.Test;
  * 给你 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别
  * 为 (i, ai) 和 (i, 0) 。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水
  *
+ * level 2 100.00%
  * @author limin
  * @date 2021/2/21
  */
 public class Code0011MaxAreaTest {
     public int maxArea(int[] height) {
-        if (height == null || height.length < 2) {
-            return 0;
-        }
-        int maxArea = 0;
-        for (int i = 0; i < height.length - 1; i++) {
-            for (int j = i + 1; j < height.length; j++) {
-                maxArea = Math.max(Math.min(height[i], height[j]) * (j - i), maxArea);
+        int max = 0;
+        int left = 0;
+        int right = height.length - 1;
+        while(left < right) {
+            if (height[left] < height[right]) {
+                int temp = height[left];
+                max = Math.max(max, temp * (right - left));
+                while (left < right && temp >= height[left]) {
+                    left++;
+                }
+            } else {
+                int temp = height[right];
+                max = Math.max(max, temp * (right - left));
+                while (left < right && temp >= height[right]) {
+                    right--;
+                }
             }
         }
-        return maxArea;
+        return max;
     }
 
     @Test

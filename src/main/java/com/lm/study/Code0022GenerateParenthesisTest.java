@@ -9,6 +9,7 @@ import java.util.List;
  * leetcode-0022 括号生成
  * 数字 n 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且有效的括号组合。
  *
+ * level 1 96.22%
  * @author limin
  * @date 2021/2/21
  */

@@ -1,11 +1,13 @@
 package com.lm.study;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
  * leetcode-0021 合并两个有序链表
  * 将两个升序链表合并为一个新的升序链表并返回
  *
+ * level 1 100.00%
  * @author limin
  * @date 2021/2/21
  */
@@ -47,6 +49,19 @@ public class Code0021MergeTwoListsTest {
 
     @Test
     public void test() {
-
+        Code0021MergeTwoListsTest mergeTwoListsTest = new Code0021MergeTwoListsTest();
+        ListNode head1 = new ListNode(1);
+        head1.next = new ListNode(2);
+        head1.next.next = new ListNode(4);
+        ListNode head2 = new ListNode(1);
+        head2.next = new ListNode(2);
+        head2.next.next = new ListNode(3);
+        ListNode resultNode = mergeTwoListsTest.mergeTwoLists(head1, head2);
+        Assert.assertEquals(1, resultNode.val);
+        Assert.assertEquals(1, resultNode.next.val);
+        Assert.assertEquals(2, resultNode.next.next.val);
+        Assert.assertEquals(2, resultNode.next.next.next.val);
+        Assert.assertEquals(3, resultNode.next.next.next.next.val);
+        Assert.assertEquals(4, resultNode.next.next.next.next.next.val);
     }
 }

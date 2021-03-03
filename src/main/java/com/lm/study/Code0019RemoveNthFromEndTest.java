@@ -7,6 +7,7 @@ import org.junit.Test;
  * leetcode-0019 删除链表的倒数第N个节点
  * 给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点
  *
+ * level 1 100.00%
  * @author limin
  * @date 2021/2/21
  */

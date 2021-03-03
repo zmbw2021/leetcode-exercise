@@ -7,6 +7,7 @@ import org.junit.Test;
  * leetcode-0024 两两交换链表中的节点
  * 给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。
  *
+ * level 1 100.00%
  * @author limin
  * @date 2021/2/21
  */

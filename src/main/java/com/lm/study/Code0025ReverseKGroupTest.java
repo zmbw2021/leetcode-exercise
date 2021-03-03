@@ -8,60 +8,49 @@ import org.junit.Test;
  * 给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。k 是一个正整数，它的值小于或等于链表的长度。
  * 如果节点总数不是 k 的整数倍，那么请将最后剩余的节点保持原有顺序。
  *
+ * level 2 100.00%
  * @author limin
  * @date 2021/2/21
  */
 public class Code0025ReverseKGroupTest {
     public ListNode reverseKGroup(ListNode head, int k) {
-        if (head == null || k < 2) {
-            return head;
-        }
-        ListNode preHead = head;
-        int sum = 0;
-        while (preHead != null) {
-            sum++;
-            preHead = preHead.next;
-        }
-        int times = 0;
-        int index = 0;
-        ListNode result = null;
-        ListNode pre = null;
-        ListNode cur = head;
-        ListNode tmpNode = null;
-        ListNode tailNode;
-        ListNode tmp;
-        while (times < sum / k) {
-            tailNode = cur;
-            while (index < k) {
-                tmp = cur.next;
-                cur.next = pre;
-                pre = cur;
-                cur = tmp;
-                index++;
+        ListNode hair = new ListNode(0);
+        hair.next = head;
+        ListNode pre = hair;
+
+        while (head != null) {
+            ListNode tail = pre;
+            // 查看剩余部分长度是否大于等于 k
+            for (int i = 0; i < k; ++i) {
+                tail = tail.next;
+                if (tail == null) {
+                    return hair.next;
+                }
             }
-            times++;
-            index = 0;
-            if (result == null) {
-                result = pre;
-            }
-            if (tmpNode == null) {
-                tmpNode = tailNode;
-            } else {
-                tmpNode.next = pre;
-                tmpNode = tailNode;
-            }
-            pre = null;
+            ListNode nex = tail.next;
+            ListNode[] reverse = myReverse(head, tail);
+            head = reverse[0];
+            tail = reverse[1];
+            // 把子链表重新接回原链表
+            pre.next = head;
+            tail.next = nex;
+            pre = tail;
+            head = tail.next;
         }
 
-        if (result == null) {
-            return head;
+        return hair.next;
+    }
+
+    public ListNode[] myReverse(ListNode head, ListNode tail) {
+        ListNode prev = tail.next;
+        ListNode p = head;
+        while (prev != tail) {
+            ListNode nex = p.next;
+            p.next = prev;
+            prev = p;
+            p = nex;
         }
-        preHead = result;
-        while (preHead.next != null) {
-            preHead = preHead.next;
-        }
-        preHead.next = cur;
-        return result;
+        return new ListNode[]{tail, head};
     }
 
     @Test

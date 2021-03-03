@@ -7,49 +7,43 @@ import org.junit.Test;
  * leetcode-0023 合并k个升序链表
  * 给你一个链表数组，每个链表都已经按升序排列。请你将所有链表合并到一个升序链表中，返回合并后的链表
  *
+ * level 2 100.00%
  * @author limin
  * @date 2021/2/21
  */
 public class Code0023MergeKListsTest {
     public ListNode mergeKLists(ListNode[] lists) {
-        if (lists == null || lists.length == 0) {
+        return merge(lists, 0, lists.length - 1);
+    }
+
+    public ListNode merge(ListNode[] lists, int l, int r) {
+        if (l == r) {
+            return lists[l];
+        }
+        if (l > r) {
             return null;
         }
-        ListNode[] curHeads = new ListNode[lists.length];
-        for (int i = 0; i < lists.length; i++) {
-            curHeads[i] = lists[i];
+        int mid = (l + r) >> 1;
+        return mergeTwoLists(merge(lists, l, mid), merge(lists, mid + 1, r));
+    }
+
+    public ListNode mergeTwoLists(ListNode a, ListNode b) {
+        if (a == null || b == null) {
+            return a != null ? a : b;
         }
-
-        ListNode head = new ListNode();
-        ListNode curNode = head;
-        int minIndex = -1;
-        int minValue = Integer.MAX_VALUE;
-        boolean flag;
-        while (true) {
-            for (int i = 0; i < lists.length; i++) {
-                if (curHeads[i] != null && minValue > curHeads[i].val) {
-                    minValue = curHeads[i].val;
-                    minIndex = i;
-                }
+        ListNode head = new ListNode(0);
+        ListNode tail = head, aPtr = a, bPtr = b;
+        while (aPtr != null && bPtr != null) {
+            if (aPtr.val < bPtr.val) {
+                tail.next = aPtr;
+                aPtr = aPtr.next;
+            } else {
+                tail.next = bPtr;
+                bPtr = bPtr.next;
             }
-
-            flag = false;
-            for (int i = 0; i < lists.length; i++) {
-                if (curHeads[i] != null) {
-                    flag = true;
-                    break;
-                }
-            }
-            if (!flag) {
-                break;
-            }
-            curNode.next = curHeads[minIndex];
-            curNode = curNode.next;
-            curHeads[minIndex] = curHeads[minIndex].next;
-            minIndex = -1;
-            minValue = Integer.MAX_VALUE;
+            tail = tail.next;
         }
-
+        tail.next = (aPtr != null ? aPtr : bPtr);
         return head.next;
     }
 

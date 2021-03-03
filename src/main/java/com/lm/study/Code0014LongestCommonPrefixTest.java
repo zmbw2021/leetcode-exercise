@@ -7,10 +7,14 @@ import org.junit.Test;
  * leetcode-0014 最长公共前缀
  * 编写一个函数来查找字符串数组中的最长公共前缀
  *
+ * level 2 100.00%
  * @author limin
  * @date 2021/2/21
  */
 public class Code0014LongestCommonPrefixTest {
+    /**
+     * 二分查找
+     * */
     public String longestCommonPrefix(String[] strs) {
         if (strs == null) {
             return new String();
@@ -30,7 +34,6 @@ public class Code0014LongestCommonPrefixTest {
             }
         }
 
-        // 纵向比较每个字符串的开头
         StringBuilder res = new StringBuilder();
         for (int j = 0; j < col; j++) {
             char tmp = target[0][j];

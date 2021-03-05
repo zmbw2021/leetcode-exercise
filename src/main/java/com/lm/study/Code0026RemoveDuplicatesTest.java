@@ -7,34 +7,23 @@ import org.junit.Test;
  * leetcode-0026 删除排序数组中的重复项
  * 给定一个排序数组，你需要在 原地 删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
  *
+ * level 2 100.00%
  * @author limin
  * @date 2021/2/21
  */
 public class Code0026RemoveDuplicatesTest {
     public int removeDuplicates(int[] nums) {
-        if (nums == null || nums.length < 1) {
+        if (nums.length == 0) {
             return 0;
         }
-        if (nums.length == 1) {
-            return 1;
-        }
         int i = 0;
-        int pre = nums[i];
-        int tmp = i + 1;
-        while (tmp < nums.length) {
-            if (pre != nums[tmp]) {
-                swap(nums, ++i, tmp);
-                pre = nums[i];
+        for (int j = 1; j < nums.length; j++) {
+            if (nums[j] != nums[i]) {
+                i++;
+                nums[i] = nums[j];
             }
-            tmp++;
         }
         return i + 1;
-    }
-
-    private void swap(int[] nums, int i, int j) {
-        int tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
     }
 
     @Test

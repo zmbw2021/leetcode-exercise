@@ -1,5 +1,8 @@
 package com.lm.study;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -56,5 +59,13 @@ public class Code0030FindSubstringTest {
             }
         }
         return r;
+    }
+
+    @Test
+    public void test() {
+        Code0030FindSubstringTest findSubstringTest = new Code0030FindSubstringTest();
+        List<Integer> result = findSubstringTest.findSubstring("barfoothefoobarman", new String[]{"foo", "bar"});
+        Assert.assertEquals(0, result.get(0).intValue());
+        Assert.assertEquals(9, result.get(1).intValue());
     }
 }
